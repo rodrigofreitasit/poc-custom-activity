@@ -25,7 +25,6 @@
                     "message": "Corpo da mensagem"
                 }
             ],
-            "outArguments": [],
             "useJwt": false,
             "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net"
         }
@@ -33,14 +32,11 @@
     "configurationArguments":{
         "publish":{
             "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
-        },
-         "validate":{
-            "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
         }
     },
     "userInterfaces": {
         "configInspector": {
-            "size":"large"
+            "size":"medium"
         }
     }
 }
