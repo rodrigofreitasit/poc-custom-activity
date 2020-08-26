@@ -3,8 +3,6 @@
     "metaData": {
         "icon": "img/icon.png",
         "category": "message",
-        "isConfigured": false,
-        "configurationDisabled": false,
         "configOnDrop": true
     },
     "type": "REST",
