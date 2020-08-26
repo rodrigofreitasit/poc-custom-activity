@@ -2,7 +2,8 @@
     "workflowApiVersion": "1.1",
     "metaData": {
         "icon": "img/icon.png",
-        "category": "message"
+        "category": "message",
+        "configOnDrop": true
     },
     "type": "REST",
     "lang": {
@@ -31,6 +32,9 @@
     },
     "configurationArguments":{
         "publish":{
+            "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+        },
+         "validate":{
             "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
         }
     },
