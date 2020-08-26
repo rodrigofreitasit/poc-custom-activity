@@ -3,7 +3,7 @@ var connection = new Postmonger.Session();
 connection.trigger('ready');
 
 connection.on('initActivity', function (data) {
-    document.getElementById('configuration').value = JSON.stringfy(data, null, 2);
+    document.getElementById('configuration').value = JSON.stringify(data, null, 2);
 
 });
 
