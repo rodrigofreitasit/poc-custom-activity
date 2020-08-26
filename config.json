@@ -3,13 +3,10 @@
     "metaData": {
         "icon": "img/icon.png",
         "category": "message",
-        "iconSmall": null,
-        "statsContactIcon": null,
-        "original_icon": "img/icon.png",
-        "isConfigured":true
+        "isConfigured": false,
+        "configurationDisabled": false,
+        "configOnDrop": true
     },
-    "id": null,
-    "key": "REST-1",
     "type": "REST",
     "lang": {
         "en-US": {
@@ -36,18 +33,19 @@
     },
     "configurationArguments":{
         "publish":{
-            "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+            "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
+            "useJwt": false,
+            "verb": "POST",
+        },
+        "validate": {
+            "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
+            "verb": "POST",
+            "useJwt": false
         }
     },
     "userInterfaces": {
-        "configInspector": {
-            "size":"large"
+        "configModal": {
+            "fullscreen": true
         }
-    },
-    "editable": true,
-    "outcomes": [
-        {
-          "next": "WAITBYDURATION-1"
-      }
-  ],
+    }
 }
