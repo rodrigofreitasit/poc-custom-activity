@@ -2,17 +2,16 @@
     "workflowApiVersion": "1.1",
     "metaData": {
         "icon": "img/icon.png",
-        "category": "message",
-        "configOnDrop": true
+        "category": "message"
     },
     "type": "REST",
     "lang": {
         "en-US": {
-            "name": "Custom Activity - POC",
+            "name": "Custom Activity (Workflow API v1.1)",
             "description": "A custom Journey Builder activity using workflow API v1.1 format."
         },
         "pt-BR": {
-            "name": "Atividade Customizada - POC",
+            "name": "Atividade Customizada (Workflow API v1.1)",
             "description": "Uma atividade customizada para journey builder utilizando workflow API V1.1"
         }
     },
@@ -25,25 +24,19 @@
                     "message": "Corpo da mensagem"
                 }
             ],
+            "outArguments": [],
             "useJwt": false,
             "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net"
         }
     },
     "configurationArguments":{
         "publish":{
-            "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
-            "useJwt": false,
-            "verb": "POST",
-        },
-        "validate": {
-            "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
-            "verb": "POST",
-            "useJwt": false
+            "url":"https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
         }
     },
     "userInterfaces": {
-        "configModal": {
-            "fullscreen": true
+        "configInspector": {
+            "size":"large"
         }
     }
 }
