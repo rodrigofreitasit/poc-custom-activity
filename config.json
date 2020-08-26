@@ -29,15 +29,6 @@
             "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net"
         }
     },
-    "configurationArguments": {
-        "publish": {
-            "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net",
-            "verb": "POST",
-            "useJwt": false,
-            "format": "json",
-            "body": "Salvando a jornada"
-
-        },
     "userInterfaces": {
         "configInspector": {
             "size":"medium"
