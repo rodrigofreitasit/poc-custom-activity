@@ -23,8 +23,9 @@ connection.on("requestedSchema", function (data) {
   // For to create a LI with values from DE schema
   for (var i = 0; i < data.schema.length; i++) {
     var node = document.createElement("LI"); // Create a <li> node
-    var li_name = data.schema[i].key.substring(key.lastIndexOf(".") + 1);
-    var textnode = document.createTextNode(li_name); // Create a text node
+    var deKey = data.schema[i].key;
+    var liName = deKey.substring(deKey.lastIndexOf(".") + 1);
+    var textnode = document.createTextNode(liName); // Create a text node
     node.appendChild(textnode); // Append the text to <li>
     document.getElementById("myList").appendChild(node);
 
