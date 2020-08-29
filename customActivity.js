@@ -20,13 +20,14 @@ connection.on("clickedNext", function () {
 });
 
 connection.on("requestedSchema", function (data) {
-  // save schema
+  // For to create a LI with values from DE schema
   for (var i = 0; i < data.schema.length; i++) {
     var node = document.createElement("LI"); // Create a <li> node
-    var textnode = document.createTextNode(data.schema[i].key); // Create a text node
+    var textnode = document.createTextNode(
+      data.schema[i].keysubstring(key.lastIndexOf(".") + 1)
+    ); // Create a text node
     node.appendChild(textnode); // Append the text to <li>
     document.getElementById("myList").appendChild(node);
     console.log(data.schema[i].key);
   }
-  console.log("*** Schema ***", JSON.stringify(data["schema"]));
 });
