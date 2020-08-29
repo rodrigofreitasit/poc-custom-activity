@@ -24,7 +24,7 @@ connection.on("requestedSchema", function (data) {
   for (var i = 0; i < data.schema.length; i++) {
     var node = document.createElement("LI"); // Create a <li> node
     var textnode = document.createTextNode(
-      data.schema[i].keysubstring(key.lastIndexOf(".") + 1)
+      data.schema[i].key.substring(key.lastIndexOf(".") + 1)
     ); // Create a text node
     node.appendChild(textnode); // Append the text to <li>
     document.getElementById("myList").appendChild(node);
