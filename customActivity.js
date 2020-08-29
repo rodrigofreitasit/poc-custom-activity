@@ -22,5 +22,8 @@ connection.on("clickedNext", function () {
 //requestSchema
 connection.on("requestedSchema", function (data) {
   // save schema
-  console.log("*** Schema ***", JSON.stringify(data["schema"]));
+  var deValues = JSON.stringify(data["schema"]);
+  for (var i = 0; i < deValues.length; i++) {
+    console.log(deValues[i].key);
+  }
 });
