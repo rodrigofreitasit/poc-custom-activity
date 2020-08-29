@@ -19,11 +19,10 @@ connection.on("clickedNext", function () {
   connection.trigger("updateActivity", configuration);
 });
 
-//requestSchema
 connection.on("requestedSchema", function (data) {
   // save schema
-  var deValues = JSON.stringify(data["schema"]);
-  for (var i = 0; i < deValues.length; i++) {
-    console.log(deValues[i].key);
+  for (var i = 0; i < data.schema.length; i++) {
+    console.log(data.schema[i].key);
   }
+  console.log("*** Schema ***", JSON.stringify(data["schema"]));
 });
