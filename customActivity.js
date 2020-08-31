@@ -9,6 +9,7 @@ connection.on("initActivity", function (data) {
   //     null,
   //     2
   //   );
+  console.log(data);
 });
 
 //save
@@ -16,7 +17,7 @@ connection.on("clickedNext", function () {
   var configuration = JSON.parse(
     document.getElementById("configuration").value
   );
-  connection.trigger("updateActivity", configuration);
+  //   connection.trigger("updateActivity", configuration);
 });
 
 connection.on("requestedSchema", function (data) {
