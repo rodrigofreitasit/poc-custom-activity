@@ -22,44 +22,27 @@
     "execute": {
       "inArguments": [
         {
-          "title": null,
-          "subtitle": null,
-          "message": null,
-          "actionLink": null
+          "title": "Titulo da notificação",
+          "subtitle": "Subtitulo da notificação",
+          "message": "Olá Teste"
         }
       ],
       "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net",
       "outArguments": []
     }
   },
-  "wizardSteps": [
-    { "key": "step1", "label": "Configuração da Notificação" },
-    { "key": "step2", "label": "Configuração da Mensagem" }
-  ],
   "configurationArguments": {
     "save": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
-      "verb": "POST",
-      "format": "json",
-      "body": "Save"
+      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
     },
     "publish": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
-      "verb": "POST",
-      "format": "json",
-      "body": "{\"ctaText\":null,\"images\":[{\"url\":null,\"quality\":\"HIGH\",\"short_description\":\"\"},{\"url\":null,\"quality\":\"MEDIUM\",\"short_description\":\"\"},{\"url\":null,\"quality\":\"LOW\",\"short_description\":\"\"}]}"
+      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
     },
     "validate": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
-      "verb": "POST",
-      "format": "json",
-      "body": "Validate"
+      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
     },
     "stop": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
-      "verb": "POST",
-      "format": "json",
-      "body": "Stop"
+      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
     }
   },
   "userInterfaces": {
