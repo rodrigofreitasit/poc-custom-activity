@@ -47,7 +47,7 @@
       "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
       "verb": "POST",
       "format": "json",
-      "body": "Publish"
+      "body": "{\"ctaText\":null,\"images\":[{\"url\":null,\"quality\":\"HIGH\",\"short_description\":\"\"},{\"url\":null,\"quality\":\"MEDIUM\",\"short_description\":\"\"},{\"url\":null,\"quality\":\"LOW\",\"short_description\":\"\"}]}"
     },
     "validate": {
       "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
