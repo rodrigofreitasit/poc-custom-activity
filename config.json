@@ -32,6 +32,10 @@
       "outArguments": []
     }
   },
+  "wizardSteps": [
+    { "key": "step1", "label": "Configuração da Notificação" },
+    { "key": "step2", "label": "Configuração da Mensagem" }
+  ],
   "configurationArguments": {
     "save": {
       "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net",
