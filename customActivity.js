@@ -13,12 +13,12 @@ connection.on("initActivity", function (data) {
 });
 
 //save
-connection.on("clickedNext", function () {
-  var configuration = JSON.parse(
-    document.getElementById("configuration").value
-  );
-  //   connection.trigger("updateActivity", configuration);
-});
+// connection.on("clickedNext", function () {
+//   var configuration = JSON.parse(
+//     document.getElementById("configuration").value
+//   );
+//   connection.trigger("updateActivity", configuration);
+// });
 
 connection.on("requestedSchema", function (data) {
   // For to create a LI with values from DE schema
