@@ -4,22 +4,29 @@ connection.trigger("ready");
 connection.trigger("requestSchema");
 
 connection.on("initActivity", function (data) {
-  //   document.getElementById("configuration").value = JSON.stringify(
-  //     data,
-  //     null,
-  //     2
-  //   );
+  document.getElementById("configuration").value = JSON.stringify(
+    data,
+    null,
+    2
+  );
   console.log(data);
 });
 
-//save
-// connection.on("clickedNext", function () {
-//   var configuration = JSON.parse(
-//     document.getElementById("configuration").value
-//   );
-//   connection.trigger("updateActivity", configuration);
-// });
+//Request Interaction data
 
+connection.on("requestedInteraction", function (data) {
+  console.log(data);
+});
+
+//Update config.json
+connection.on("clickedNext", function () {
+  var configuration = JSON.parse(
+    document.getElementById("configuration").value
+  );
+  connection.trigger("updateActivity", configuration);
+});
+
+//request schema from DE
 connection.on("requestedSchema", function (data) {
   // For to create a LI with values from DE schema
   for (var i = 0; i < data.schema.length; i++) {
