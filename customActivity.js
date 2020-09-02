@@ -16,23 +16,10 @@ connection.on("clickedNext", save);
 function onRender() {
   // JB will respond the first time 'ready' is called with 'initActivity'
   connection.trigger("ready");
-
   connection.trigger("requestTokens");
   connection.trigger("requestEndpoints");
-
-  // request schema
   connection.trigger("requestSchema");
 }
-
-// Broadcast in response to a requestSchema event called by the custom application.
-connection.on("requestedSchema", function (data) {
-  if (data.error) {
-    console.error(data.error);
-  } else {
-    schema = data["schema"];
-  }
-  console.log("*** Schema ***", JSON.stringify(schema));
-});
 
 function initialize(data) {
   console.log(data);
@@ -62,15 +49,6 @@ function initialize(data) {
     text: "done",
     visible: true,
   });
-}
-
-function onGetTokens(tokens) {
-  console.log("tokens: ", tokens);
-  authTokens = tokens;
-}
-
-function onGetEndpoints(endpoints) {
-  console.log("endpoints: ", endpoints);
 }
 
 // schema parsing
@@ -115,6 +93,21 @@ function extractFields() {
   return formArg;
 }
 
+//request schema from DE
+connection.on("requestedSchema", function (data) {
+  // For to create a LI with values from DE schema
+  for (var i = 0; i < data.schema.length; i++) {
+    var node = document.createElement("LI"); // Create a <li> node
+    var deKey = data.schema[i].key;
+    var liName = deKey.substring(deKey.lastIndexOf(".") + 1);
+    var textnode = document.createTextNode(liName); // Create a text node
+    node.appendChild(textnode); // Append the text to <li>
+    document.getElementById("listaVariaveis").appendChild(node);
+
+    console.log(data.schema[i].key);
+  }
+});
+
 function save() {
   var postcardURLValue = $("#postcard-url").val();
   var postcardTextValue = $("#postcard-text").val();
@@ -122,9 +115,8 @@ function save() {
 
   payload["arguments"].execute.inArguments = [
     {
-      tokens: authTokens,
-      emailAddress: "{{Contact.Attribute.PostcardJourney.EmailAddress}}",
-      fields: fields,
+      emailAddress: "{{Contact.Key}}",
+      fields: deKey,
     },
   ];
 
@@ -155,19 +147,4 @@ connection.on("clickedNext", function () {
     document.getElementById("configuration").value
   );
   connection.trigger("updateActivity", configuration);
-});
-
-//request schema from DE
-connection.on("requestedSchema", function (data) {
-  // For to create a LI with values from DE schema
-  for (var i = 0; i < data.schema.length; i++) {
-    var node = document.createElement("LI"); // Create a <li> node
-    var deKey = data.schema[i].key;
-    var liName = deKey.substring(deKey.lastIndexOf(".") + 1);
-    var textnode = document.createTextNode(liName); // Create a text node
-    node.appendChild(textnode); // Append the text to <li>
-    document.getElementById("listaVariaveis").appendChild(node);
-
-    console.log(data.schema[i].key);
-  }
 });
