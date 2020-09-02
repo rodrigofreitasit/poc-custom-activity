@@ -51,7 +51,7 @@ function initialize(data) {
     ? payload["arguments"].execute.inArguments
     : {};
 
-  console.log(inArguments);
+  console.log("inArguments: ", inArguments);
 
   $.each(inArguments, function (index, inArgument) {
     $.each(inArgument, function (key, val) {});
@@ -65,12 +65,12 @@ function initialize(data) {
 }
 
 function onGetTokens(tokens) {
-  console.log(tokens);
+  console.log("tokens: ", tokens);
   authTokens = tokens;
 }
 
 function onGetEndpoints(endpoints) {
-  console.log(endpoints);
+  console.log("endpoints: ", endpoints);
 }
 
 // schema parsing
@@ -130,7 +130,7 @@ function save() {
 
   payload["metaData"].isConfigured = true;
 
-  console.log(payload);
+  console.log("payload: ", payload);
   connection.trigger("updateActivity", payload);
 }
 
@@ -140,13 +140,13 @@ connection.on("initActivity", function (data) {
     null,
     2
   );
-  console.log(data);
+  console.log("initActivity", data);
 });
 
 //Request Interaction data
 
 connection.on("requestedInteraction", function (data) {
-  console.log(data);
+  console.log("requestedInteraction", data);
 });
 
 //Update config.json

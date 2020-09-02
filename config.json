@@ -22,9 +22,9 @@
     "execute": {
       "inArguments": [
         {
-          "title": "Titulo da notificação",
-          "subtitle": "Subtitulo da notificação",
-          "message": "Olá Teste"
+          "title": null,
+          "subtitle": null,
+          "message": null
         }
       ],
       "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net",
