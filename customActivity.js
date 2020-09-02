@@ -103,14 +103,16 @@ function extractFields() {
 }
 
 function save() {
-  var postcardURLValue = $("#inputTitle").val();
-  var postcardTextValue = $("#ctaText").val();
+  var title = $("#inputTitle").val();
+  var ctaText = $("#ctaText").val();
   var fields = extractFields();
 
   payload["arguments"].execute.inArguments = [
     {
-      emailAddress: "{{Contact.Attribute.PostcardJourney.EmailAddress}}",
+      ContactKey: "{{Contact.Key}}",
       fields: fields,
+      title: title,
+      ctaText: ctaText,
     },
   ];
 
