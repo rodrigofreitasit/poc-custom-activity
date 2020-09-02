@@ -9,16 +9,59 @@
     />
     <meta http-equiv="Access-Control-Allow-Origin" content="*" />
     <title>Custom Journey Builder Activity</title>
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body class="bg" style="background-color: #fbfbfb">
-    <h1>POC Custom Activity</h1>
-    <textarea id="configuration"></textarea>
-    <ul id="myList"></ul>
+    <section class="wrapper">
+      <ul id="listaVariaveis">
+        <li>lista 1</li>
+        <li>lista 1</li>
+        <li>lista 1</li>
+        <li>lista 1</li>
+        <li>lista 1</li>
+        <li>lista 1</li>
+        <li>lista 2</li>
+        <li>lista 3</li>
+      </ul>
+      <label for="configuration">configuration area</label>
+      <textarea
+        id="configuration"
+        rows="2"
+        cols="50"
+        placeholder="configuration area..."
+      ></textarea
+      ><br />
+      <label for="inputTitle">inputTitle</label>
+      <input
+        type="text"
+        name="inputTitle"
+        id="inputTitle"
+        placeholder="Title text..."
+      />
+      <label for="ctaText">ctaText</label>
+      <input
+        type="text"
+        name="ctaText"
+        id="ctaText"
+        placeholder="cta text..."
+      />
+    </section>
 
     <!-- Postmonger -->
     <script src="postmonger.js"></script>
     <!-- Custom Activity JavaScript-->
     <script src="customActivity.js"></script>
+    <!-- Jquery JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
