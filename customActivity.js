@@ -1,16 +1,12 @@
 "use strict";
 
 var connection = new Postmonger.Session();
-var authTokens = {};
 var payload = {};
 var schema = {};
 
 $(window).ready(onRender);
 
 connection.on("initActivity", initialize);
-connection.on("requestedTokens", onGetTokens);
-connection.on("requestedEndpoints", onGetEndpoints);
-
 connection.on("clickedNext", save);
 
 function onRender() {
@@ -31,11 +27,11 @@ connection.on("requestedSchema", function (data) {
   } else {
     schema = data["schema"];
   }
-  console.log("*** Schema ***", JSON.stringify(schema));
+  console.log("Schema: ", JSON.stringify(schema));
 });
 
 function initialize(data) {
-  console.log(data);
+  console.log("initialize: ", data);
   if (data) {
     payload = data;
   }
@@ -64,32 +60,23 @@ function initialize(data) {
   });
 }
 
-function onGetTokens(tokens) {
-  console.log("tokens: ", tokens);
-  authTokens = tokens;
-}
-
-function onGetEndpoints(endpoints) {
-  console.log("endpoints: ", endpoints);
-}
-
 // schema parsing
 // [{
-//     "key": "Event.APIEvent-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Id",
+//     "key": "Event.DEAudience-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Id",
 //     "type": "Text",
 //     "length": 18,
 //     "default": null,
 //     "isNullable": null,
 //     "isPrimaryKey": null
 // }, {
-//     "key": "Event.APIEvent-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Name",
+//     "key": "Event.DEAudience-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Name",
 //     "type": "Text",
 //     "length": 50,
 //     "default": null,
 //     "isNullable": null,
 //     "isPrimaryKey": null
 // }, {
-//     "key": "Event.APIEvent-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Mobile",
+//     "key": "Event.DEAudience-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Mobile",
 //     "type": "Text",
 //     "length": 50,
 //     "default": null,
@@ -108,7 +95,7 @@ function extractFields() {
       // save only event data source fields
       // {"key":"Event.APIEvent-ed211fdf-2260-8057-21b1-a1488f701f6a.offerId","type":"Text",
       // "length":50,"default":null,"isNullable":null,"isPrimaryKey":null}
-      if (field.key.indexOf("APIEvent") !== -1)
+      if (field.key.indexOf("DEAudience") !== -1)
         formArg[name] = "{{" + field.key + "}}";
     }
   }
@@ -116,13 +103,12 @@ function extractFields() {
 }
 
 function save() {
-  var postcardURLValue = $("#postcard-url").val();
-  var postcardTextValue = $("#postcard-text").val();
+  var postcardURLValue = $("#inputTitle").val();
+  var postcardTextValue = $("#ctaText").val();
   var fields = extractFields();
 
   payload["arguments"].execute.inArguments = [
     {
-      tokens: authTokens,
       emailAddress: "{{Contact.Attribute.PostcardJourney.EmailAddress}}",
       fields: fields,
     },
@@ -130,43 +116,6 @@ function save() {
 
   payload["metaData"].isConfigured = true;
 
-  console.log("payload: ", payload);
+  console.log(payload);
   connection.trigger("updateActivity", payload);
 }
-
-connection.on("initActivity", function (data) {
-  document.getElementById("configuration").value = JSON.stringify(
-    data,
-    null,
-    2
-  );
-  console.log("initActivity", data);
-});
-
-//Request Interaction data
-
-connection.on("requestedInteraction", function (data) {
-  console.log("requestedInteraction", data);
-});
-
-//Update config.json
-connection.on("clickedNext", function () {
-  var configuration = JSON.parse(
-    document.getElementById("configuration").value
-  );
-  connection.trigger("updateActivity", configuration);
-});
-
-//request schema from DE
-// connection.on("requestedSchema", function (data) {
-//   // For to create a LI with values from DE schema
-//   for (var i = 0; i < data.schema.length; i++) {
-//     var node = document.createElement("LI"); // Create a <li> node
-//     var deKey = data.schema[i].key;
-//     var liName = deKey.substring(deKey.lastIndexOf(".") + 1);
-//     var textnode = document.createTextNode(liName); // Create a text node
-//     node.appendChild(textnode); // Append the text to <li>
-//     document.getElementById("listaVariaveis").appendChild(node);
-
-//     console.log(data.schema[i].key);
-//   }
