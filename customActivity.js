@@ -12,11 +12,7 @@ connection.on("clickedNext", save);
 function onRender() {
   // JB will respond the first time 'ready' is called with 'initActivity'
   connection.trigger("ready");
-
-  connection.trigger("requestTokens");
-  connection.trigger("requestEndpoints");
-
-  // request schema
+  // request schema from DE
   connection.trigger("requestSchema");
 }
 
@@ -60,29 +56,6 @@ function initialize(data) {
   });
 }
 
-// schema parsing
-// [{
-//     "key": "Event.DEAudience-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Id",
-//     "type": "Text",
-//     "length": 18,
-//     "default": null,
-//     "isNullable": null,
-//     "isPrimaryKey": null
-// }, {
-//     "key": "Event.DEAudience-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Name",
-//     "type": "Text",
-//     "length": 50,
-//     "default": null,
-//     "isNullable": null,
-//     "isPrimaryKey": null
-// }, {
-//     "key": "Event.DEAudience-cbf6ce98-ba4f-a5c1-cc68-503ca1f60c39.Mobile",
-//     "type": "Text",
-//     "length": 50,
-//     "default": null,
-//     "isNullable": null,
-//     "isPrimaryKey": null
-// }]
 function extractFields() {
   var formArg = {};
   console.log("*** Schema parsing ***", JSON.stringify(schema));
@@ -92,9 +65,6 @@ function extractFields() {
       var field = schema[i];
       var index = field.key.lastIndexOf(".");
       var name = field.key.substring(index + 1);
-      // save only event data source fields
-      // {"key":"Event.APIEvent-ed211fdf-2260-8057-21b1-a1488f701f6a.offerId","type":"Text",
-      // "length":50,"default":null,"isNullable":null,"isPrimaryKey":null}
       if (field.key.indexOf("DEAudience") !== -1)
         formArg[name] = "{{" + field.key + "}}";
     }
@@ -104,15 +74,19 @@ function extractFields() {
 
 function save() {
   var title = $("#inputTitle").val();
-  var ctaText = $("#ctaText").val();
+  var subtitle = $("#inputSubTitle").val();
+  var msgbody = $("#inputMsg").val();
+  var ctaText = $("#inputCtaText").val();
   var fields = extractFields();
 
   payload["arguments"].execute.inArguments = [
     {
       ContactKey: "{{Contact.Key}}",
-      fields: fields,
       title: title,
+      subtitle: subtitle,
+      msgbody: msgbody,
       ctaText: ctaText,
+      variables: fields,
     },
   ];
 
@@ -121,3 +95,13 @@ function save() {
   console.log(payload);
   connection.trigger("updateActivity", payload);
 }
+
+// Max text area count
+$("textarea").keyup(function () {
+  var characterCount = $(this).val().length,
+    current = $("#current"),
+    maximum = $("#maximum"),
+    theCount = $("#the-count");
+
+  current.text(characterCount);
+});
