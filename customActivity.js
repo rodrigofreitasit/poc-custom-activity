@@ -7,8 +7,9 @@ var schema = {};
 $(window).ready(onRender);
 connection.on('initActivity', initActivity);
 connection.on('clickedNext', save);
-connection.on('requestedTokens', onGetTokens);
-connection.on('requestedEndpoints', onGetEndpoints);
+connection.on('requestedTokens', requestedTokens);
+connection.on('requestedSchema', requestedSchema);
+connection.on('requestedEndpoints', requestedEndpoints);
 
 function onRender() {
 	// JB will respond the first time 'ready' is called with 'initActivity'
@@ -29,13 +30,11 @@ function initActivity(payload) {
 	console.log('initActivity: ', payload);
 }
 
-connection.on('requestedTokens', requestedTokens);
 function requestedTokens(tokens) {
 	console.log('requestedTokens: ', tokens);
 }
 
 // Broadcast in response to a requestSchema event called by the custom application.
-connection.on('requestedSchema', requestedSchema);
 function requestedSchema(data) {
 	if (data.error) {
 		console.error('requestedSchema Error: ', data.error);
@@ -43,6 +42,10 @@ function requestedSchema(data) {
 		schema = data['schema'];
 	}
 	console.log('requestedSchema: ', schema);
+}
+
+function requestedEndpoints(endpoints) {
+	console.log('endpoints: ', endpoints);
 }
 
 // function initialize(data) {
