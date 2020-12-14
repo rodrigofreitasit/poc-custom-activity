@@ -5,7 +5,7 @@ var payload = {};
 var schema = {};
 
 $(window).ready(onRender);
-connection.on('initActivity', initialize);
+connection.on('initActivity', initActivity);
 connection.on('clickedNext', save);
 connection.on('requestedTokens', onGetTokens);
 connection.on('requestedEndpoints', onGetEndpoints);
@@ -24,7 +24,7 @@ function onRender() {
 	connection.trigger('requestTriggerEventDefinition');
 }
 
-connection.on('initActivity', initActivity);
+// connection.on('initActivity', initActivity);
 function initActivity(payload) {
 	console.log('initActivity: ', payload);
 }
