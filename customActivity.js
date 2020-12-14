@@ -88,36 +88,6 @@ function requestedTriggerEventDefinition(eventDefinitionModel) {
 	console.log('requestedTriggerEventDefinition: ', eventDefinitionModel);
 }
 
-// function initialize(data) {
-// 	console.log('initialize: ', data);
-// 	if (data) {
-// 		payload = data;
-// 	}
-
-// 	var hasInArguments = Boolean(
-// 		payload['arguments'] &&
-// 			payload['arguments'].execute &&
-// 			payload['arguments'].execute.inArguments &&
-// 			payload['arguments'].execute.inArguments.length > 0
-// 	);
-
-// 	var inArguments = hasInArguments
-// 		? payload['arguments'].execute.inArguments
-// 		: {};
-
-// 	console.log('inArguments: ', inArguments);
-
-// 	$.each(inArguments, function (index, inArgument) {
-// 		$.each(inArgument, function (key, val) {});
-// 	});
-
-// 	connection.trigger('updateButton', {
-// 		button: 'next',
-// 		text: 'done',
-// 		visible: true,
-// 	});
-// }
-
 function extractFields() {
 	var formArg = {};
 	console.log('*** Schema parsing ***', JSON.stringify(schema));
@@ -154,7 +124,7 @@ function save() {
 
 	payload['metaData'].isConfigured = true;
 
-	console.log(payload);
+	console.log('save payload: ', JSON.stringify(payload));
 	connection.trigger('updateActivity', payload);
 }
 
