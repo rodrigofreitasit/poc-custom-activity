@@ -32,8 +32,30 @@ function onRender() {
 }
 
 // connection.on('initActivity', initActivity);
-function initActivity(payload) {
-	console.log('initActivity: ', payload);
+function initActivity(data) {
+	console.log('initActivity: ', JSON.stringify(data));
+	if (data) {
+		payload = data;
+	}
+
+	var hasInArguments = Boolean(
+		payload['arguments'] &&
+			payload['arguments'].execute &&
+			payload['arguments'].execute.inArguments &&
+			payload['arguments'].execute.inArguments.length > 0
+	);
+
+	var inArguments = hasInArguments
+		? payload['arguments'].execute.inArguments
+		: {};
+
+	console.log('Has In arguments: ' + JSON.stringify(inArguments));
+
+	connection.trigger('updateButton', {
+		button: 'next',
+		text: 'done',
+		visible: true,
+	});
 }
 
 function requestedTokens(tokens) {
