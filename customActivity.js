@@ -10,6 +10,12 @@ connection.on('clickedNext', save);
 connection.on('requestedTokens', requestedTokens);
 connection.on('requestedSchema', requestedSchema);
 connection.on('requestedEndpoints', requestedEndpoints);
+connection.on('requestedInteractionDefaults', requestedInteractionDefaults);
+connection.on('requestedInteraction', requestedInteraction);
+connection.on(
+	'requestedTriggerEventDefinition',
+	requestedTriggerEventDefinition
+);
 
 function onRender() {
 	// JB will respond the first time 'ready' is called with 'initActivity'
@@ -46,6 +52,18 @@ function requestedSchema(data) {
 
 function requestedEndpoints(endpoints) {
 	console.log('endpoints: ', endpoints);
+}
+
+function requestedInteractionDefaults(settings) {
+	console.log('requestedInteractionDefaults: ', settings);
+}
+
+function requestedInteraction(interaction) {
+	console.log('requestedInteraction: ', interaction);
+}
+
+function requestedTriggerEventDefinition(eventDefinitionModel) {
+	console.log('requestedTriggerEventDefinition: ', eventDefinitionModel);
 }
 
 // function initialize(data) {
