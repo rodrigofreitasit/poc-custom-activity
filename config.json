@@ -1,53 +1,54 @@
 {
-  "workflowApiVersion": "1.1",
-  "metaData": {
-    "icon": "img/icon.png",
-    "category": "message",
-    "isConfigured": false,
-    "configurationDisabled": false,
-    "configOnDrop": true
-  },
-  "type": "REST",
-  "lang": {
-    "en-US": {
-      "name": "POC - Custom Activity (Enext)",
-      "description": "A custom Journey Builder activity using workflow API v1.1 format."
-    },
-    "pt-BR": {
-      "name": "POC -  Atividade Customizada (Enext)",
-      "description": "Uma atividade customizada para journey builder utilizando workflow API V1.1"
-    }
-  },
-  "arguments": {
-    "execute": {
-      "inArguments": [
-        {
-          "title": null,
-          "subtitle": null,
-          "message": null
-        }
-      ],
-      "url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net",
-      "outArguments": []
-    }
-  },
-  "configurationArguments": {
-    "save": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
-    },
-    "publish": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
-    },
-    "validate": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
-    },
-    "stop": {
-      "url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
-    }
-  },
-  "userInterfaces": {
-    "configModal": {
-      "fullscreen": true
-    }
-  }
+	"workflowApiVersion": "1.1",
+	"metaData": {
+		"icon": "img/icon.png",
+		"category": "message",
+		"isConfigured": false,
+		"configurationDisabled": false,
+		"configOnDrop": true
+	},
+	"type": "REST",
+	"lang": {
+		"en-US": {
+			"name": "POC - Custom Activity (Enext)",
+			"description": "A custom Journey Builder activity using workflow API v1.1 format."
+		},
+		"pt-BR": {
+			"name": "POC -  Atividade Customizada (Enext)",
+			"description": "Uma atividade customizada para journey builder utilizando workflow API V1.1"
+		}
+	},
+	"arguments": {
+		"execute": {
+			"inArguments": [
+				{
+					"title": null,
+					"subtitle": null,
+					"message": null,
+					"ctaLink": null
+				}
+			],
+			"url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net",
+			"outArguments": []
+		}
+	},
+	"configurationArguments": {
+		"save": {
+			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+		},
+		"publish": {
+			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+		},
+		"validate": {
+			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+		},
+		"stop": {
+			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+		}
+	},
+	"userInterfaces": {
+		"configModal": {
+			"fullscreen": true
+		}
+	}
 }
