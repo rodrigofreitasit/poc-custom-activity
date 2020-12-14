@@ -88,28 +88,28 @@ function requestedTriggerEventDefinition(eventDefinitionModel) {
 	console.log('requestedTriggerEventDefinition: ', eventDefinitionModel);
 }
 
-function extractFields() {
-	var formArg = {};
-	console.log('*** Schema parsing ***', JSON.stringify(schema));
-	if (schema !== 'undefined' && schema.length > 0) {
-		// the array is defined and has at least one element
-		for (var i in schema) {
-			var field = schema[i];
-			var index = field.key.lastIndexOf('.');
-			var name = field.key.substring(index + 1);
-			if (field.key.indexOf('DEAudience') !== -1)
-				formArg[name] = '{{' + field.key + '}}';
-		}
-	}
-	return formArg;
-}
+// function extractFields() {
+// 	var formArg = {};
+// 	console.log('*** Schema parsing ***', JSON.stringify(schema));
+// 	if (schema !== 'undefined' && schema.length > 0) {
+// 		// the array is defined and has at least one element
+// 		for (var i in schema) {
+// 			var field = schema[i];
+// 			var index = field.key.lastIndexOf('.');
+// 			var name = field.key.substring(index + 1);
+// 			if (field.key.indexOf('DEAudience') !== -1)
+// 				formArg[name] = '{{' + field.key + '}}';
+// 		}
+// 	}
+// 	return formArg;
+// }
 
 function save() {
 	var title = $('#inputTitle').val();
 	var subtitle = $('#inputSubTitle').val();
 	var msgbody = $('#inputMsg').val();
 	var ctaLink = $('#inputCtaText').val();
-	var fields = extractFields();
+	// var fields = extractFields();
 
 	payload['arguments'].execute.inArguments = [
 		{
@@ -118,7 +118,6 @@ function save() {
 			subtitle: subtitle,
 			msgbody: msgbody,
 			ctaLink: ctaLink,
-			variables: fields,
 		},
 	];
 
