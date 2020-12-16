@@ -31,7 +31,6 @@ function onRender() {
 	connection.trigger('requestTriggerEventDefinition');
 }
 
-// connection.on('initActivity', initActivity);
 function initActivity(data) {
 	console.log('initActivity: ', JSON.stringify(data));
 	if (data) {
@@ -85,7 +84,10 @@ function requestedInteraction(interaction) {
 }
 
 function requestedTriggerEventDefinition(eventDefinitionModel) {
-	console.log('requestedTriggerEventDefinition: ', eventDefinitionModel);
+	console.log(
+		'requestedTriggerEventDefinition: ',
+		eventDefinitionModel.eventDefinitionKey
+	);
 }
 
 // function extractFields() {
@@ -104,6 +106,7 @@ function requestedTriggerEventDefinition(eventDefinitionModel) {
 // 	return formArg;
 // }
 
+// Ao clicar em done é atualizado o Payload com a configuração do Objeto
 function save() {
 	var title = $('#inputTitle').val();
 	var subtitle = $('#inputSubTitle').val();
