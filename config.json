@@ -22,13 +22,12 @@
 		"execute": {
 			"inArguments": [
 				{
-					"title": null,
-					"subtitle": null,
-					"message": null,
-					"ctaLink": null
+					"body": "Your appointment is coming up on Dec 16 at 4PM",
+					"from": "whatsapp:+14155238886",
+					"to": "whatsapp:+5511984505745"
 				}
 			],
-			"url": "https://5e49b7519b981393c5a43a819d3067c3.m.pipedream.net",
+			"url": "https://api.twilio.com/2010-04-01/Accounts/AC95391cc78b9cf6895634d7d52604571e/Messages.json",
 			"outArguments": []
 		}
 	},
