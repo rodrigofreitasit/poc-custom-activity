@@ -108,19 +108,22 @@ function requestedTriggerEventDefinition(eventDefinitionModel) {
 
 // Ao clicar em done é atualizado o Payload com a configuração do Objeto
 function save() {
-	var title = $('#inputTitle').val();
-	var subtitle = $('#inputSubTitle').val();
-	var msgbody = $('#inputMsg').val();
-	var ctaLink = $('#inputCtaText').val();
+	// var title = $('#inputTitle').val();
+	// var subtitle = $('#inputSubTitle').val();
+	// var msgbody = $('#inputMsg').val();
+	// var ctaLink = $('#inputCtaText').val();
 	// var fields = extractFields();
 
 	payload['arguments'].execute.inArguments = [
 		{
-			ContactKey: '{{Contact.Key}}',
-			title: title,
-			subtitle: subtitle,
-			msgbody: msgbody,
-			ctaLink: ctaLink,
+			// ContactKey: '{{Contact.Key}}',
+			// title: title,
+			// subtitle: subtitle,
+			// msgbody: msgbody,
+			// ctaLink: ctaLink,
+			body: 'Your appointment is coming up on Dec 16 at 4PM',
+			from: 'whatsapp:+14155238886',
+			to: 'whatsapp:+5511984505745',
 		},
 	];
 
