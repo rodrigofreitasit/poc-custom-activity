@@ -28,22 +28,22 @@
 					"ctaLink": null
 				}
 			],
-			"url": "https://api.twilio.com/2010-04-01/Accounts/AC95391cc78b9cf6895634d7d52604571e/Messages.json",
+			"url": "https://4a9bf3cabd08eddf8f9d8ae720c0faa7.m.pipedream.net",
 			"outArguments": []
 		}
 	},
 	"configurationArguments": {
 		"save": {
-			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+			"url": "https://4a9bf3cabd08eddf8f9d8ae720c0faa7.m.pipedream.net"
 		},
 		"publish": {
-			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+			"url": "https://4a9bf3cabd08eddf8f9d8ae720c0faa7.m.pipedream.net"
 		},
 		"validate": {
-			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+			"url": "https://4a9bf3cabd08eddf8f9d8ae720c0faa7.m.pipedream.net"
 		},
 		"stop": {
-			"url": "https://1a903d6514146322f1b70586bacf203f.m.pipedream.net"
+			"url": "https://4a9bf3cabd08eddf8f9d8ae720c0faa7.m.pipedream.net"
 		}
 	},
 	"userInterfaces": {
