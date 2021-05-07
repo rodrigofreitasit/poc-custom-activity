@@ -10,11 +10,11 @@
 	"type": "REST",
 	"lang": {
 		"en-US": {
-			"name": "POC - Custom Activity (Enext)",
+			"name": "POC - Custom Activity",
 			"description": "A custom Journey Builder activity using workflow API v1.1 format."
 		},
 		"pt-BR": {
-			"name": "POC -  Atividade Customizada (Enext)",
+			"name": "POC -  Atividade Customizada",
 			"description": "Uma atividade customizada para journey builder utilizando workflow API V1.1"
 		}
 	},
