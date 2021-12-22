@@ -116,11 +116,11 @@ function getMessage() {
 }
 
 // // Max text area count
-// $("textarea").keyup(function () {
-//   var characterCount = $(this).val().length,
-//     current = $("#current"),
-//     maximum = $("#maximum"),
-//     theCount = $("#the-count");
+$("textarea").keyup(function () {
+   var characterCount = $(this).val().length,
+     current = $("#current"),
+    maximum = $("#maximum"),
+     theCount = $("#the-count");
 
-//   current.text(characterCount);
-// });
+  current.text(characterCount);
+});
